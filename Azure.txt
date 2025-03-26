@@ -449,7 +449,6 @@ Microsoft Entra Connect (Azure active directory connect)
 App registration (Serviceprincipal):
 -----------------------------------
 clinet_id: 501fb645-3e03-4fcb-ab95-148c656b0005
-secret: Qpe8Q~GbfXQMWABeUiDt12CD2D9hUY6CNt~fgaiz
 
 tenant_id: 459865f1-a8aa-450a-baec-8b47a9e5c904
 
