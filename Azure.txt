@@ -1,0 +1,531 @@
+Welcome to Azure & AzureDevops Training!
+
+1. 7:30 - 8:30am IST 
+2. documentations 
+3. Labs 
+4. Recordings 
+5. Interview questions 
+6. Assist for certification - Az-104 & Az-400 
+7. Mock interview 
+
+
+QA:
+--
+
+Cloud computing:    
+    Accesing the computing resources over the internet 
+
+Cloud computing service models:
+    - IAAS  (Infrastructure as a service)
+    - PAAS  (Platform as a service)
+    - SAAS  (Software as a service)
+
+Cloud Deployment Models:
+    - Public Cloud  (Azure, AWS, GCP, OCI, Alibaba Cloud)
+    - Private Cloud (On-premises)
+    - Hybrid Cloud  (Combination of public and private cloud)
+
+Azure:
+    - Microsoft Azure is a cloud computing service created by Microsoft for building, testing, deploying, and managing applications and services
+    - It provides software as a service (SaaS), platform as a service (PaaS) and infrastructure as a service (IaaS) and supports many different programming languages, tools, and frameworks, including both Microsoft-specific and third-party software and systems.
+
+2010 - Azure was launched (windows azure)
+2014 - windows azure was renamed to Microsoft Azure
+
+Azure fundamentals - AZ-900 (Optional)
+Azure administration - AZ-104 
+Azure Devops - AZ-400
+
+Agenda:
+------
+1. Create azure free trail account 
+    *** NEW EMAIL ID ***
+    *** NEW PHONE NUMBER ***
+    *** Use incoginito mode ***
+
+    link: https://azure.microsoft.com/en-in/free/
+
+2. Azure portal demo:
+
+    link: https://portal.azure.com/
+
+
+3. Azure services overiew:
+
+    link: https://docs.microsoft.com/en-us/azure/
+
+4. Azure documentations:
+
+    link: https://docs.microsoft.com/en-us/azure/
+
+5. Azure pricing calculator:
+
+    link: https://azure.microsoft.com/en-in/pricing/calculator/
+
+    abcd.com --> datacenter:
+
+    windows server 2019         - 1 
+    linux server ubuntu 18.04   - 1
+    storage service             - 1
+    SQL database                - 1
+    Security                    - 1
+
+
+
+Agenda:
+------
+
+1. Azure subscription overview:
+    - Rename azure subscription 
+    - Offer types of azure subscription 
+    - Activity logs 
+
+    1500 Subscripitons 
+
+    volvo-eastus-dev
+    volvo-eastus-nonprod
+    volvo-eastus-prod 
+
+2. Azure RBAC (Role based access control):
+    - Built-in roles 
+        Owner - Full access to all resources and can delegate access to others
+        Contributor - Can create and manage all types of Azure resources but can't grant access to others
+        Reader - Can view existing Azure resources
+    
+    link: https://learn.microsoft.com/en-us/azure/role-based-access-control/
+
+3. Azure Heirarchy:
+    - Tenant:    Represent your entire organization
+        - Management group: to manage access, policy, and compliance across multiple subscriptions
+            - Subscription:  enalbe you to start creating resources
+                - Resource group:    - logical container to hold related resources
+                    - Resource:      - any item that is managed by Azure  vms, storage, web apps, databases, etc
+
+    link: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources
+
+
+Agenda:
+------
+
+Azure Policies:
+    - Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements.
+
+    link: https://learn.microsoft.com/en-us/azure/governance/policy/overview
+
+
+Tags:
+    - Tags enable you to categorize resources in different ways, such as by department, project, cost center, or any other criteria. Each tag consists of a name and a value.
+
+    link: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources
+
+
+Resource Locks:
+    - Azure resource locks are a setting that can be applied to any resource to block modification or deletion. These settings can be applied to any resource in Azure, including resource groups, to protect critical resources from accidental deletion or modification.
+
+    link: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources
+
+    - Readonly
+    - Delete
+
+Suppot Plans:
+    - Basic
+    - Developer
+    - Standard
+    - Professional Direct
+    - Premier
+
+    link: https://azure.microsoft.com/en-in/support/plans/
+
+
+Agenda:
+---
+
+2010 windows azure      ASM (Azure Service Manager)
+
+2014 Microsoft azure    ARM (Azure Resource Manager)
+
+
+What is ARM (Azure Resource Manager):
+
+Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that helps you to create, update, and delete resources in your Azure account
+
+How many ways we can create azure resources:
+- Azure Portal 
+
+- Azure CLI 
+
+    az login 
+    az logout 
+
+    az group list
+    az group create --name rg-01 --location eastus
+    az group delete -n rg-01 --yes
+
+- Azure PowerShell
+    Login-AzAccount / Connect-AzAccount
+    Logout-AzAccount / Disconnect-AzAccount
+
+    Get-AzResourceGroup
+    New-AzResourceGroup -Name "rg-01" -Location "eastus"
+    remove-AzResourceGroup -Name "rg-01" -Force
+
+
+- ARMTemplates 
+- Terraform
+- Bicep
+
+
+Agenda:
+------
+
+IP Address (Internet protocol)
+
+IPv4    - 32 bit address    0.0.0.0  to 255.255.255.255
+IPv6    - 128 bit address
+
+IPv4 Classes:
+    - Class A    -  0.0.0.0 to 127.255.255.255  
+                    10.0.0.0 to 10.255.255.255 (Private IP)
+
+    - Class B    -  128.0.0.0 to 191.255.255.255    142.250.182.206 google.com & 163.70.140.35 facebook.com
+                    172.16.0.0 to 172.31.255.255   (Private IP)
+
+    - Class C    -  192.0.0.0 to 223.255.255.255
+                    192.168.0.0 to 192.168.255.255  (Private IP) 192.168.0.19
+
+    - Class D    -  224.0.0.0 to 239.255.255.255
+    - Class E    -  240.0.0.0 to 255.255.255.255
+
+
+CIDR: Classless Inter-Domain Routing
+
+10.0.0.0/16    = 2^32-16 - 2^16 = 65536 (5 Reserved IPs) = 65531
+10.0.0.0/24    = 2^32-24 - 2^8 = 256    (5 Reserved IPs) = 251
+10.0.0.0/25    = 2^32-25 - 2^7 = 128    (5 Reserved IPs) = 123
+192.168.0.0/27 = 2^32-27 - 2^5 = 32    (5 Reserved IPs) = 27
+10.0.0.0/28   = 2^32-28 - 2^4 = 16  (5 Reserved IPs) = 11
+10.0.0.0/29   = 2^32-29 - 2^3 = 8   (5 Reserved IPs) = 3
+10.0.0.0/30   = 2^32-30 - 2^2 = 4   (5 Reserved IPs)
+
+
+10.0.0.0/29 
+
+10.0.0.0    - Network Address
+10.0.0.1    - Reserved by Azure for the default gateway.
+10.0.0.2    - Reserved by Azure to map the Azure DNS IP addresses to the virtual network space.
+10.0.0.3    - Reserved by Azure to map the Azure DNS IP addresses to the virtual network space.
+10.0.0.4 
+10.0.0.5 
+10.0.0.6 
+10.0.0.7    - Network broadcast address.
+
+
+Azure Virtual Network (VNET):
+    Azure Virtual Network is a service that provides the fundamental building block for your private network in Azure. An instance of the service (a virtual network) enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. These Azure resources include virtual machines (VMs).
+
+
+Azure Virtual Machine (VM):
+--------------------------
+
+Onprem - Server 
+Azure - VM 
+AWS - Instance
+VMWare - VM
+
+What do I need to think about before creating a virtual machine?
+
+1. The names of your resources
+    <project>-<region>-<environemnt>-<resourcetype>-##
+    saanvikit-eastus-dev-vm-01
+2. The location where the resources are stored
+3. The size of the virtual machine  (2vCPU and 8GB RAM) Standard_D2s_V3
+4. The maximum number of virtual machines that can be created
+5. The operating system that the virtual machine runs
+    Windows server - Windows server 2022 
+                     Windows server 2019
+                     Windows server 2016
+
+    Linux server - Ubuntu 22.04 LTS 
+                   RHEL 8,9 
+6. The configuration of the virtual machine after it starts
+7. The related resources that the virtual machine needs
+   - Data disk
+
+OS DIsk:
+
+Windows VM - 127 GB
+Linux VM - 30 GB
+
+
+Windows VM --> Webserver (IIS - Internet information services) --> html
+
+Linux VM:
+--------
+
+Availability options:
+--------------------
+
+- Availability set : protecting against failures within datacenter
+    -fault domain   3
+    -update domain  20
+
+- Availability zone: protection from entire datacenter failures
+
+Linux VM (Ubuntu) --> webserver (apache2) --> /var/www/html/inex.html
+
+
+
+
+Azure Storage Accounts:
+----------------------
+
+Storage account types:
+---------------------
+1. Standard general-purpose v2      Blob Storage (including Data Lake Storage1), Queue Storage, Table Storage, and Azure Files
+2. Premium block blobs              Blob Storage (including Data Lake Storage1)  
+3. Premium file shares              Azure Files
+4. Premium page blobs               Page blobs only
+
+
+Storage service types:
+---------------------
+
+1. Blob (Binary large object)
+    - Page blob     store the VHD
+    - Append blob   store the logs
+    - Block blob    store the video, audio, images etc
+
+2. Fileshare    NFS 
+3. Queues       store the messages 
+4. Table        store the structured data in keyvalue pair format
+
+
+Performance tier:
+----------------
+Standard    -   HDD 
+Premium     -   SSD 
+
+
+Endpoints:
+---------
+
+Storage service	                    Endpoint
+---------------                     --------
+Blob Storage	                    https://<storage-account>.blob.core.windows.net
+Static website (Blob Storage)	    https://<storage-account>.web.core.windows.net
+Data Lake Storage	                https://<storage-account>.dfs.core.windows.net
+Azure Files	                        https://<storage-account>.file.core.windows.net
+Queue Storage	                    https://<storage-account>.queue.core.windows.net
+Table Storage	                    https://<storage-account>.table.core.windows.net
+
+
+
+Azure Storage redundancy:
+------------------------
+1. LRS  Azure Storage redundancy - 3 copies, in primary region
+2. ZRS  Zone-redundant storage   - 3 copies, in primary region in 3 AZ
+3. GRS  Geo-redundant storage    - 6 copies, 3 in primay & 3 in secondary region
+4. RA-GRS Ready Access Geo-redundant storage - 6 copies, 3 in primay & 3 in secondary region and will have read access to secondary region
+5. GZRS Geo-zone-redundant storage - 6 copies, 3 copies in primary ZRS mode & 3 copies in secondary LRS mode
+6. RA-GZRS Read Access Geo-zone-redundant storage - 6 copies, 3 copies in primary ZRS mode & 3 copies in secondary LRS mode and will have read access to secondary region
+
+Access tiers:
+------------
+Hot 
+Cold
+Cool
+Archive 
+
+- Hot tier - An online tier optimized for storing data that is accessed or modified frequently. The hot tier has the highest storage costs, but the lowest access costs.
+- Cool tier - An online tier optimized for storing data that is infrequently accessed or modified. Data in the cool tier should be stored for a minimum of 30 days. The cool tier has lower storage costs and higher access costs compared to the hot tier.
+- Cold tier - An online tier optimized for storing data that is rarely accessed or modified, but still requires fast retrieval. Data in the cold tier should be stored for a minimum of 90 days. The cold tier has lower storage costs and higher access costs compared to the cool tier.
+- Archive tier - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the archive tier should be stored for a minimum of 180 days.
+
+
+Lifecycle management rules:
+
+
+Hosting static website
+
+Azure file share
+
+queues 
+
+Table services 
+
+Azure CDN (Content delivery network):
+------------------------------------
+A content delivery network is a distributed network of servers that can efficiently deliver web content to users. A content delivery network store cached content on edge servers in point of presence (POP) locations that are close to end users, to minimize latency.
+
+
+
+Azure Backup:
+------------
+
+The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
+
+Backup types:
+------------
+- Full          Used for initial backup.    A full backup contains the entire data source. Takes more network bandwidth than differential or incremental backups.
+- Differential  Not used by Azure Backup.   A differential backup stores the blocks that changed since the initial full backup.
+- Incremental                               An incremental backup stores only the blocks of data that changed since the previous backup. 
+
+
+Azure VM Backup:
+---------------
+
+During the first backup, a backup extension is installed on the VM if the VM is running.
+
+For Windows VMs, the VMSnapshot extension is installed.
+For Linux VMs, the VMSnapshotLinux extension is installed.
+
+
+Azure Network connectivities:
+----------------------------
+
+1. VNET Peering (private connection)
+    - Regional VNET Peering (VNET1 & VNET2 same region ex: EastUS)
+    - Global VNET Peering (VNET1 EastUS & VNET2 Central India)
+
+    **Pre-requisite:
+        - IP Addresses should not overlap
+
+2. VNET to VNET VPN 
+
+3. Site to Site VPN (Public connection)
+
+4. Express Route (Private connection) - ISP 
+
+5. Point to site VPN
+
+6. Azure Hub-spoke model
+
+7. Network security groups (NSG):
+    You can use an Azure network security group to filter network traffic between Azure resources in an Azure virtual network. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
+    
+    Associated
+        - Subnet
+        - NIC (Network interface)
+
+8. Private endpoint 
+9. Service endpoint 
+
+
+Azure Monitor & Alerts:
+----------------------
+
+Azure Monitor - Infrastructure 
+Application Insights - Application monitoring
+
+
+
+Microsoft Entra ID (Azure Active directory):
+-------------------------------------------
+
+Active directory: Identity and access management 
+
+windows server --> AD DS (Active directory domain service)  --> Active directory administrator window
+
+ramakrishna.a@tcs.com 
+
+
+Microsoft Entra ID (Azure active directory): Cloud managed identity and access management 
+-------------------------------------------
+
+1. SSO (Single sign on)
+2. SSPR (Self service password reset)
+3. Security monitoring 
+4. User and Group management 
+5. Device registration
+6. Appregistrations
+
+7. License 
+    - Microsoft Entra ID Free 
+    - Microsoft Entra ID P1
+    - Microsoft Entra ID P2
+
+Microsoft Entra Connect (Azure active directory connect)
+
+App registration (Serviceprincipal):
+-----------------------------------
+clinet_id: 501fb645-3e03-4fcb-ab95-148c656b0005
+secret: Qpe8Q~GbfXQMWABeUiDt12CD2D9hUY6CNt~fgaiz
+
+tenant_id: 459865f1-a8aa-450a-baec-8b47a9e5c904
+
+az login --service-principal --username 501fb645-3e03-4fcb-ab95-148c656b0005 --password Qpe8Q~GbfXQMWABeUiDt12CD2D9hUY6CNt~fgaiz --tenant 459865f1-a8aa-450a-baec-8b47a9e5c904
+
+
+App Services:   Azure App Service is a fully managed platform as a service (PaaS) for hosting web applications. 
+------------
+
+Ecomerce  --> Azure VM     --> IAAS 
+Ecommerce --> App Service  --> PAAS 
+
+- WebApp            - Hosting the websites  (App)
+- Function App      - Server less architecture 
+- Logic App         - Build some logics and execute
+
+
+Blue-Green Deployment:
+    It is a software release strategy that aims to minimize downtime and reduce the risk associated with deploying new versions of an application
+
+
+https://volvo123-c0fwh4h2h8h5bgcg.canadacentral-01.azurewebsites.net/
+
+volvo.com
+
+
+VMSS (Virtual Machine scale set):
+--------------------------------
+
+    Auto scaling feature
+
+    Azure Virtual Machine Scale Sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule
+
+
+LoadBalancers:
+-------------
+
+- Azure LoadBalancers
+    - Supports only HTTP 
+    - Health probe: Health probes are used to check the status of a backend pool instance. If the health probe fails to get a response from a backend instance then no new connections will be sent to that backend instance until the health probe succeeds again.
+    - Public / Private LoadBalancer
+    - Backend Pool - VM / VMSS 
+    - Regional / Global 
+    - Loadbalancing / NAT rules 
+
+- Application Gateway 
+    Azure Application Gateway is a web traffic (OSI layer 7) load balancer that enables you to manage traffic to your web applications
+
+    - Supports HTTP / HTTPS 
+    - Includes WAF (Web application firewall)
+    - Backend pool 
+        - IP Address / FQDN (Fully qualified domain name)
+        - VM 
+        - VMSS 
+        - App Services 
+    - Path based routing 
+    - Multi site hosting 
+    - SSL Offloading 
+
+- Traffic Manager 
+    Azure Traffic Manager is a DNS-based traffic load balancer. This service allows you to distribute traffic to your public facing applications across the global Azure regions.
+    - Support only HTTP 
+    
+    The following traffic routing methods are available in Traffic Manager:
+
+    - Priority: Select Priority routing when you want to have a primary service endpoint for all traffic. You can provide multiple backup endpoints in case the primary or one of the backup endpoints is unavailable.
+    - Weighted: Select Weighted routing when you want to distribute traffic across a set of endpoints based on their weight. Set the weight the same to distribute evenly across all endpoints.
+    - Performance: Select Performance routing when you have endpoints in different geographic locations and you want end users to use the "closest" endpoint for the lowest network latency.
+    - Geographic: Select Geographic routing to direct users to specific endpoints (Azure, External, or Nested) based on where their DNS queries originate from geographically. With this routing method, it enables you to be in compliance with scenarios such as data sovereignty mandates, localization of content & user experience and measuring traffic from different regions.
+    - Multivalue: Select MultiValue for Traffic Manager profiles that can only have IPv4/IPv6 addresses as endpoints. When a query is received for this profile, all healthy endpoints are returned.
+    - Subnet: Select Subnet traffic-routing method to map sets of end-user IP address ranges to a specific endpoint. When a request is received, the endpoint returned will be the one mapped for that request’s source IP address. 
+
+- Azure Front door 
+    Application gateway + Traffic manager + CDN (Content delivery network)
+
+
+
+IAC - Infrastructure as a code:
+------------------------------

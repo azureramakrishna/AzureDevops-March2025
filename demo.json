@@ -1,0 +1,52 @@
+{
+    "Topic": "Azure with AzureDevops",
+    "Company": "SAANVIK IT TECHNOLOGIES",
+    "Contact": 9513184144,
+    "TrainerName": "Ramakrishna",
+    "Address": {
+        "City": "Hyderabad",
+        "State": "Telangana",
+        "Country": "India"
+    },
+
+    "Courses": [
+        {
+            "CourseName": "Azure",
+            "Duration": "30 Days",
+            "Trainer": "Ramakrishna"
+        },
+        {
+            "CourseName": "AzureDevops",
+            "Duration": "30 Days",
+            "Trainer": "Ramakrishna"
+        }
+    ],
+
+    "Students": [
+        {
+            "StudentName": "Mahesh",
+            "IsAzureAdmin": true,
+            "Location": "Hyderabad" 
+        },
+        {
+            "StudentName": "Rupa",
+            "IsAzureAdmin": true,
+            "Location": "US" 
+        },
+        {
+            "StudentName": "Venky",
+            "IsAzureAdmin": true,
+            "Location": "Hyderabad" 
+        },
+        {
+            "StudentName": "Sanjana",
+            "IsAzureAdmin": false,
+            "Location": "US" 
+        },
+        {
+            "StudentName": "Mrudula",
+            "IsAzureAdmin": false,
+            "Location": "US" 
+        }
+    ]
+}
