@@ -225,7 +225,17 @@
                         "managedDisk": {
                             "storageAccountType": "StandardSSD_LRS"
                         }
-                    }
+                    },
+                    "dataDisks": [
+                        {
+                            "lun": 1,
+                            "name": "[concat(parameters('vmName'),'-datadisk1')]",
+                            "createOption": "attach",
+                            "managedDisk": {
+                                "id": "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-datadisk1'))]"
+                            }
+                        }
+                    ]
                 },
                 "networkProfile": {
                     "networkInterfaces": [
@@ -243,8 +253,24 @@
             },
             "dependsOn": [
                 "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storage_account_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storage_account_name'))]",
+                "[resourceId('Microsoft.Compute/disks/', concat(parameters('vmName'),'-datadisk1'))]"
             ]
+        },
+        {
+            "type": "Microsoft.Compute/disks",
+            "apiVersion": "2018-06-01",
+            "name": "[concat(parameters('vmName'),'-datadisk1')]", // saanvikit-vm-01-datadisk1
+            "location": "[variables('location')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "properties": {
+                "creationData": {
+                    "createOption": "Empty"
+                },
+                "diskSizeGB": 10
+            }
         }
     ],
     "outputs": {

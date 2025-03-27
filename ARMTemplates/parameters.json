@@ -10,6 +10,14 @@
         },
         "adminUsername": {
             "value": "azureuser"
+        },
+        "adminPassword": {
+        "reference": {
+            "keyVault": {
+            "id": "/subscriptions/2e28c82c-17d7-4303-b27a-4141b3d4088f/resourceGroups/rg-vnet/providers/Microsoft.KeyVault/vaults/saanvikitkv1"
+            },
+            "secretName": "VMPassword"
+          }
         }
     }
 }
