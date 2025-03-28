@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storage_account_name": {
-            "value": "Saanvikitsa25032025"
+            "value": "vikramsa25032025"
         },
         "vmName": {
-            "value": "saanvikit-vm-01"
+            "value": "vikram-vm-01"
         },
         "adminUsername": {
             "value": "azureuser"

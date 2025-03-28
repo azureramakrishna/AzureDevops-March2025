@@ -85,17 +85,17 @@
     "variables": {
         "location": "[resourceGroup().location]",
         "tags": {
-            "Owner": "Ramakrishna",
+            "Owner": "vikram",
             "Environment": "Development",
             "Department": "IT",
             "CostCenter": "CC123",
             "Project": "SAANVIK-IT"
         },
-        "networkSecurityGroupName": "saanvikit-nsg-01",
-        "virtual_network_name": "saanvikit-vnet-01",
-        "subnet_name": "saanvikit-subnet-01",
-        "networkInterfaceName": "saanvikit-nic-01",
-        "publicIPAddressName": "saanvikit-publicip-01"
+        "networkSecurityGroupName": "vikram-nsg-01",
+        "virtual_network_name": "vikram-vnet-01",
+        "subnet_name": "vikram-subnet-01",
+        "networkInterfaceName": "vikram-nic-01",
+        "publicIPAddressName": "vikram-publicip-01"
     },
     "resources": [
         {
@@ -260,7 +260,7 @@
         {
             "type": "Microsoft.Compute/disks",
             "apiVersion": "2018-06-01",
-            "name": "[concat(parameters('vmName'),'-datadisk1')]", // saanvikit-vm-01-datadisk1
+            "name": "[concat(parameters('vmName'),'-datadisk1')]", // vikram-vm-01-datadisk1
             "location": "[variables('location')]",
             "sku": {
                 "name": "Standard_LRS"

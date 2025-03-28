@@ -5,4 +5,4 @@
 # New-AzResourceGroup -Name "arm" -Location "East US"
 
 # Deploy the template
-New-AzResourceGroupDeployment -ResourceGroupName "arm" -TemplateFile ./template.json -TemplateParameterFile ./parameters.json -verbose
+New-AzResourceGroupDeployment -ResourceGroupName "arm-01" -TemplateFile ./template.json -TemplateParameterFile ./parameters.json -verbose
