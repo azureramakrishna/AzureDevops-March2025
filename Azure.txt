@@ -528,3 +528,33 @@ LoadBalancers:
 
 IAC - Infrastructure as a code:
 ------------------------------
+
+ARMTemplates: JSON 
+
+Structure:
+
+- Schema
+- ConenetVersion
+- Parameters
+- Variables
+- resources
+- Output
+
+New-AzResourceGroupDeployment -ResourceGroupName abc -TemplateFile ./template.json -TemplateParameterFile.json -Verbose 
+
+Azure RBAC Role - Built in roles 
+Azure Polices - Build in policies 
+
+How to deploy the ARMtemplates using the portal 
+
+Extension: ARMTemplate Viewer (Resource visualizer)
+
+Deployment Modes:
+
+- Incremental: In incremental mode, Resource Manager leaves unchanged resources that exist in the resource group but aren't specified in the template. Resources in the template are added to the resource group.
+- Complete: In complete mode, Resource Manager deletes resources that exist in the resource group but aren't specified in the template.
+
+
+How to create multiple resources with single template?
+
+- copy.index()

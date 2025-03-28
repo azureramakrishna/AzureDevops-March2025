@@ -1,0 +1,62 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storage_account_name": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the storage account"
+            }
+        },
+        "storage_account_kind": {
+            "type": "string",
+            "metadata": {
+                "description": "Storage account type"
+            },
+            "allowedValues": [
+                "StorageV2",
+                "BlobStorage",
+                "FileStorage",
+                "BlockBlobStorage",
+                "Storage"
+            ],
+            "defaultValue": "StorageV2"
+        },
+        "count_value": {
+            "type": "int",
+            "metadata": {
+                "description": "Number of storage accounts to create"
+            }
+        }
+    },
+    "functions": [],
+    "variables": {
+        "location": "[resourceGroup().location]",
+        "tags": {
+            "Owner": "vikram",
+            "Environment": "Development",
+            "Department": "IT",
+            "CostCenter": "CC123",
+            "Project": "SAANVIK-IT"
+        }
+    },
+    "resources": [
+        {
+            "name": "[concat(toLower(parameters('storage_account_name')),copyIndex(1))]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2023-05-01",
+            "tags": "[variables('tags')]",
+            "location": "[variables('location')]",
+            "kind": "[parameters('storage_account_kind')]",
+            "copy": {
+                "name": "storageCopy",
+                "count": "[parameters('count_value')]"
+            },
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Premium"
+            }
+        }
+    ],
+    "outputs": {}
+}
