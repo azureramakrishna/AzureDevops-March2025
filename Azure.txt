@@ -558,3 +558,36 @@ Deployment Modes:
 How to create multiple resources with single template?
 
 - copy.index()
+
+
+Terraform:
+---------
+
+ARMTemplates                                        Terraform 
+------------                                        ---------
+1. IAC                                              1. IAC 
+2. Specific to Azure  (Bicep)                       2. Open source (Azure, AWS, GCP, onprem etc)
+3. template.json                                    3. main.tf 
+    parameters.json                                     variables.tf
+4. Structure:                                       4. Building blocks:
+    Schema                                              providers
+    contentVersion                                      resources
+    parameters                                          outputs
+    variables 
+    resources 
+    outputs 
+5. New-AzResourceGroupDeployment '                  5. Terraform Lifecycle
+    -ResourceGroupName '                                terraform init
+    -TemplateFile '                                     terraform fmt
+    -TemplateParameterFile '                            terraform validate
+    -Verbose                                            terraform plan
+                                                        terraform apply 
+                                                        terraform destroy
+6. Format: JSON                                     6. Format: HCL (Hashicorp configuration language) --> 2024 IBM
+
+
+Getting started:
+---------------
+Install Terraform 
+Install VSCode + Terraform extensions 
+
