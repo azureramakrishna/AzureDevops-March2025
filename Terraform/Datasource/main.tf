@@ -16,18 +16,21 @@ provider "azurerm" {
   subscription_id = var.subscription_id
 }
 
-# Create a resource group
-resource "azurerm_resource_group" "rg" {
-  name     = var.resource_group_name
-  location = var.location
-  tags     = var.tags
+# Terraform backend configuration
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "storage-resource-group"
+    storage_account_name = "saanvikit"         # Can be passed via `-backend-config=`"storage_account_name=<storage account name>"` in the `init` command.
+    container_name       = "tfstate"           # Can be passed via `-backend-config=`"container_name=<container name>"` in the `init` command.
+    key                  = "terraform.tfstate" # Can be passed via `-backend-config=`"key=<blob key name>"` in the `init` command.
+  }
 }
 
 # Create a storage account
 resource "azurerm_storage_account" "sa" {
   name                     = lower(var.storage_account_name)
-  resource_group_name      = azurerm_resource_group.rg.name
-  location                 = azurerm_resource_group.rg.location
+  resource_group_name      = data.azurerm_resource_group.rg.name
+  location                 = data.azurerm_resource_group.rg.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
   tags                     = var.tags
@@ -36,8 +39,8 @@ resource "azurerm_storage_account" "sa" {
 # Create a Virtual Network
 resource "azurerm_virtual_network" "vnet" {
   name                = var.virtual_network_name
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+  location            = data.azurerm_resource_group.rg.location
+  resource_group_name = data.azurerm_resource_group.rg.name
   address_space       = var.virtual_network_address
 
   tags = var.tags
@@ -47,7 +50,7 @@ resource "azurerm_virtual_network" "vnet" {
 resource "azurerm_subnet" "snet" {
   depends_on           = [azurerm_virtual_network.vnet]
   name                 = var.subnet_name
-  resource_group_name  = azurerm_resource_group.rg.name
+  resource_group_name  = data.azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = var.subnet_address
 }
@@ -55,8 +58,8 @@ resource "azurerm_subnet" "snet" {
 # Create a Public IP
 resource "azurerm_public_ip" "pip" {
   name                = var.public_ip_name
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
+  resource_group_name = data.azurerm_resource_group.rg.name
+  location            = data.azurerm_resource_group.rg.location
   allocation_method   = "Static"
 
   tags = var.tags
@@ -66,8 +69,8 @@ resource "azurerm_public_ip" "pip" {
 resource "azurerm_network_interface" "nic" {
   depends_on          = [azurerm_public_ip.pip, azurerm_subnet.snet]
   name                = var.nic_name
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+  location            = data.azurerm_resource_group.rg.location
+  resource_group_name = data.azurerm_resource_group.rg.name
 
   ip_configuration {
     name                          = "internal"
@@ -80,8 +83,8 @@ resource "azurerm_network_interface" "nic" {
 # Create a Netowrk security group
 resource "azurerm_network_security_group" "nsg" {
   name                = var.nsg_name
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+  location            = data.azurerm_resource_group.rg.location
+  resource_group_name = data.azurerm_resource_group.rg.name
 
   security_rule {
     name                       = "RDP"
@@ -121,11 +124,11 @@ resource "azurerm_subnet_network_security_group_association" "snet_nsg" {
 resource "azurerm_windows_virtual_machine" "vm" {
   depends_on          = [azurerm_network_interface.nic]
   name                = var.virtual_machine_name
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
+  resource_group_name = data.azurerm_resource_group.rg.name
+  location            = data.azurerm_resource_group.rg.location
   size                = var.virtual_machine_size
   admin_username      = var.admin_username
-  admin_password      = var.admin_password
+  admin_password      = data.azurerm_key_vault_secret.secret.value
   network_interface_ids = [
     azurerm_network_interface.nic.id,
   ]
@@ -147,8 +150,8 @@ resource "azurerm_windows_virtual_machine" "vm" {
 # Create a Managed Disk
 resource "azurerm_managed_disk" "data_disk" {
   name                 = "${var.virtual_machine_name}-datadisk-01" //saanvikit-vm-datadisk-01
-  location             = azurerm_resource_group.rg.location
-  resource_group_name  = azurerm_resource_group.rg.name
+  location             = data.azurerm_resource_group.rg.location
+  resource_group_name  = data.azurerm_resource_group.rg.name
   storage_account_type = "Standard_LRS"
   create_option        = "Empty"
   disk_size_gb         = 10
