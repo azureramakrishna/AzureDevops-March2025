@@ -16,18 +16,6 @@ provider "azurerm" {
   subscription_id = var.subscription_id
 }
 
-# Terraform backend configuration
-terraform {
-  backend "azurerm" {
-    use_cli              = true                                    # Can also be set via `ARM_USE_CLI` environment variable.
-    use_azuread_auth     = true                                    # Can also be set via `ARM_USE_AZUREAD` environment variable.
-    tenant_id            = "459865f1-a8aa-450a-baec-8b47a9e5c904"  # Can also be set via `ARM_TENANT_ID` environment variable. Azure CLI will fallback to use the connected tenant ID if not supplied.
-    storage_account_name = "saanvikit"                              # Can be passed via `-backend-config=`"storage_account_name=<storage account name>"` in the `init` command.
-    container_name       = "tfstate"                               # Can be passed via `-backend-config=`"container_name=<container name>"` in the `init` command.
-    key                  = "terraform.tfstate"                # Can be passed via `-backend-config=`"key=<blob key name>"` in the `init` command.
-  }
-}
-
 # Create a resource group
 resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
