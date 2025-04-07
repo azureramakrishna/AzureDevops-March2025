@@ -1,0 +1,19 @@
+resource_group_name  = "dev-rg"
+location             = "East US"
+storage_account_name = "saanvikitdevsa"
+tags = {
+  Environment = "Dev"
+  Project     = "Terraform"
+}
+subscription_id         = "2e28c82c-17d7-4303-b27a-4141b3d4088f"
+virtual_network_name    = "dev-vnet"
+virtual_network_address = ["10.0.0.0/24"]
+subnet_name             = "dev-subnet"
+subnet_address          = ["10.0.0.0/24"]
+public_ip_name          = "dev-public-ip"
+nic_name                = "dev-nic"
+nsg_name                = "dev-nsg"
+virtual_machine_name    = "dev-vm"
+virtual_machine_size    = "Standard_DS1_v2"
+admin_username          = "azureuser"
+admin_password          = "P@ssw0rd1234!"
