@@ -9,7 +9,7 @@ on:
   
 defaults:
   run:
-    workingDirectory: 'Terraform/for_each'
+    working-directory: 'Terraform/for_each'
 
 permissions:
   contents: read
