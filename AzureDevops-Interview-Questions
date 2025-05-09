@@ -1,0 +1,91 @@
+ARMTemplates:
+-------------
+
+1. what is IAC?
+2. Why do we need IAC and what are the advantages 
+3. What is the structure / componants of ARMTempltes 
+4. what is the powershell command to deploy the ARMTemplates
+5. what is the function used to deploy the multiple resources using ARMTemplates 
+6. What is the difference between incremental and complete mode of deployment 
+7. what is the difference between parameters vs variables
+
+Terraform:
+---------
+
+1. what is terraform and why do we use it
+2. what are the building block of terraform 
+3. what is the lifecycle of terraform 
+4. what are the commands used to deploy the terraform templates 
+5. can you briefly explain what happens when you execute each command 
+6. what is the difference between terraform validate vs terraform plan 
+7. what is terraform.tfstate and why do we need it 
+8. where do you store the statefile 
+9. how to you secure the statefile
+10. if the statefile is deleted, how to you recover 
+11. on which stage/command the statefile is generated 
+12. what is terraform backend 
+13. what exactly happens when you do terraform plan and apply
+14. what is the resource type used to deploy the Azure VM 
+15. what are the data blocks/ datasources 
+16. how do you refer the existing azure resources in your terraform configuration 
+17. what are the terraform modules 
+18. what are common challenges/issues that you have faced while working with terraform 
+19. what is terraform drift --> terraform plan
+20. what are terraform null resources 
+21. what is terraform dynamic block and why do we use it
+22. which terraform version you have used 
+23. which terraform provider version you have used 
+24. what is the terraform provider for azure
+25. when you create a VM what are all the resource type configuration needed in terraform 
+26. what are terraform provisioners 
+27. how many types of terraform provisioners we have give some examples 
+28. what are terraform workspaces 
+29. what is terraform target 
+30. what is the function we use to deploy the multiple resources in terraform 
+31. what is the difference between count.index vs for_each 
+32. what is the difference between variables.tf vs variables.tfvars
+33. what is terraform import
+34. how do you unlock your statefile is its in lock state
+
+AzureDevops:
+-----------
+1. what is the process you are using for your project 
+2. can you explain how the agile process will work 
+3. what is version control and why do we need it
+4. Is git centralised VC or districuted VC 
+5. what is the git global config and why do we use it
+6. what is the command to clone a remote repo to local 
+7. what are git commands that you are aware 
+8. what is the difference between git fetch vs git pull 
+9. what is git cherry-pick 
+10. what is the git branching strategy that you are following for you project 
+11. what are the branching polices and what polices you have for your project 
+12. what are git tags 
+13. what is the command used to create a branch 
+14. what is the command to delete a branch 
+15. what is git log 
+16. what are azure pipeline and why do we use it
+17. what is the difference between microsoft hosted agent vs self hosted agent pools 
+18. what is the service connection
+19. what are the pre-requisites to setup a pipeline
+20. explain the CI CD flow of your project
+21. Tell me step by step how do you deploy a terraform via azure pipelines 
+22. what is CI CD
+23. what is the difference between continuous deployment vs continuous delivery 
+24. what is library in azure pipelines 
+25. how to you maintain secres in your pipeline
+26. how do you integrate azure keyvault to your azure pipelines
+27. can you explain the CI CD for Java application 
+28. Can you explain the CI CD for .NET application 
+29. what are the common challenges that you have come across in azure pipeline
+30. can you explain the azure yaml pipeline structure 
+31. How do you enable the CI and CD for you azure pipeline 
+32. what are the best practices that you follow for azure pipelines 
+33. how to create a self hosted agent pool, expaling step by step 
+34. what is the structure of github actions workflow 
+35. what is the difference between github hosted vs github self-hosted runners 
+36. can you explain step by step how do you deploy the terraform using the github actions 
+37. can you explain step by step how do you deploy a java application using github actions
+38. how do you maintain the secres in github actions workflow
+39. how to do enable approvals in github actions
+40. what is the folder path for action.yaml file
